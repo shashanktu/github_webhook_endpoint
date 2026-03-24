@@ -16,7 +16,9 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 @app.post("/github-webhook")
 async def github_webhook(request: Request):
     payload = await request.json()
-
+    print("======================")
+    print(payload)
+    print("======================")
     repo_full_name = payload.get("repository", {}).get("full_name", "unknown")
     ref = payload.get("ref", "")
     branch = ref.split("/")[-1] if ref else None
