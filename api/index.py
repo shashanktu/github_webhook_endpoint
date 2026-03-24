@@ -20,7 +20,7 @@ async def github_webhook(request: Request):
     repo_full_name = payload.get("repository", {}).get("full_name", "unknown")
     ref = payload.get("ref", "")
     branch = ref.split("/")[-1] if ref else None
-    print("======================\n",request)
+    print("======================\n",payload)
 
     print(f"Repo: {repo_full_name}")
     print(f"Branch: {branch}")
